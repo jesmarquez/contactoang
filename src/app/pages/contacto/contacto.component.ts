@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ContactoModel } from '../../models/contacto.model'
+import { ContactosService } from 'src/app/services/contactos.service';
+import { ContactoModel } from '../../models/contacto.model';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-contacto',
@@ -10,21 +13,27 @@ import { ContactoModel } from '../../models/contacto.model'
 export class ContactoComponent implements OnInit {
 
   contacto: ContactoModel = new ContactoModel();
-  constructor() { }
+  
+  constructor( private contactosService: ContactosService,  private router:Router ) { }
 
   ngOnInit(): void {
   }
 
   guardar(form: NgForm) {
-
-
+    console.log(form);
+    
     if ( form.invalid ) {
       Object.values( form.controls ).forEach( control => {
         control.markAsTouched();
       });
+    } else {
+        console.log(this.contacto);
+        this.contactosService.crearContacto( this.contacto )
+        .subscribe( resp => {
+          this.router.navigate([ '/home' ]);
+        });
+      
     }
 
-    console.log(form);
-    console.log(this.contacto);
   }
 }

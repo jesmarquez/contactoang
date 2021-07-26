@@ -11,7 +11,7 @@
                         class="form-control"
                         name = "nombre"
                         placeholder="Escribe tu nombre"
-                        [ngModel] = "contacto.nombre"
+                        [(ngModel)] = "contacto.nombre"
                         [class.is-invalid] = "nombre.invalid && nombre.touched"
                         required
                         #nombre="ngModel">
@@ -24,7 +24,7 @@
                         class="form-control"
                         name = "apellido"
                         placeholder="Escribe tu apellido"
-                        [ngModel] = "contacto.apellido"
+                        [(ngModel)] = "contacto.apellido"
                         [class.is-invalid] = "apellido.invalid && apellido.touched"
                         required
                         #apellido="ngModel">
@@ -38,7 +38,7 @@
                         name = "correo"
                         placeholder="Escribe tu correo"
                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-                        [ngModel] = "contacto.correo"
+                        [(ngModel)] = "contacto.correo"
                         [class.is-invalid] = "correo.invalid && correo.touched"
                         required
                         #correo="ngModel">
@@ -51,7 +51,7 @@
                         class="form-control"
                         name = "celular"
                         placeholder="Escribe tu celular"
-                        [ngModel] = "contacto.celular"
+                        [(ngModel)] = "contacto.celular"
                         [class.is-invalid] = "celular.invalid && celular.touched"
                         required
                         #celular="ngModel">
@@ -65,7 +65,7 @@
                         name = "area"
                         placeholder="Escribe el área"
                         [class.is-invalid] = "area.invalid && area.touched"
-                        [ngModel] = "contacto.area"
+                        [(ngModel)] = "contacto.area"
                         required
                         #area="ngModel">
                 <small *ngIf="area.invalid && area.touched" class="form-text text-danger">Area es requerido o es inválido</small>
@@ -79,7 +79,7 @@
                     id="exampleFormControlTextarea1" 
                     rows="3"
                     [class.is-invalid] = "mensaje.invalid && mensaje.touched"
-                    [ngModel] = "contacto.mensaje"
+                    [(ngModel)] = "contacto.mensaje"
                     #mensaje="ngModel"
                     required>
                 </textarea>
