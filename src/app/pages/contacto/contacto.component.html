@@ -9,59 +9,75 @@
                 <label>Nombre</label>
                 <input type="text"
                         class="form-control"
-                        placeholder="Escribe tu nombre"
-                        [(ngModel)] = "contacto.nombre"
                         name = "nombre"
-                        required>
+                        placeholder="Escribe tu nombre"
+                        [ngModel] = "contacto.nombre"
+                        [class.is-invalid] = "nombre.invalid && nombre.touched"
+                        required
+                        #nombre="ngModel">
+                        
             </div>
             <div class="form-group">
                 <label>Apellido</label>
                 <input type="text"
                         class="form-control"
-                        placeholder="Escribe tu apellido"
-                        [(ngModel)] = "contacto.apellido"
                         name = "apellido"
-                        required>
+                        placeholder="Escribe tu apellido"
+                        [ngModel] = "contacto.apellido"
+                        [class.is-invalid] = "apellido.invalid && apellido.touched"
+                        required
+                        #apellido="ngModel">
             </div>
 
             <div class="form-group">
                 <label>Correo</label>
                 <input type="text"
                         class="form-control"
-                        placeholder="Escribe tu correo"
-                        [(ngModel)] = "contacto.correo"
                         name = "correo"
-                        required>
+                        placeholder="Escribe tu correo"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                        [ngModel] = "contacto.correo"
+                        [class.is-invalid] = "correo.invalid && correo.touched"
+                        required
+                        #correo="ngModel">
             </div>
 
             <div class="form-group">
                 <label>Celular</label>
                 <input type="text"
                         class="form-control"
-                        placeholder="Escribe tu celular"
-                        [(ngModel)] = "contacto.celular"
                         name = "celular"
-                        required>
+                        placeholder="Escribe tu celular"
+                        [ngModel] = "contacto.celular"
+                        [class.is-invalid] = "celular.invalid && celular.touched"
+                        required
+                        #celular="ngModel">
             </div>
 
             <div class="form-group">
                 <label>Area</label>
                 <input type="text"
-                        [(ngModel)] = "contacto.area"
-                        name = "area"
                         class="form-control"
+                        name = "area"
                         placeholder="Escribe el área"
-                        required>
+                        [class.is-invalid] = "area.invalid && area.touched"
+                        [ngModel] = "contacto.area"
+                        required
+                        #area="ngModel">
             </div>
 
             <div class="form-group">
                 <label>Mensaje</label>
                 <textarea
-                    [(ngModel)] = "contacto.mensaje"
                     name = "mensaje"
                     class="form-control" 
                     id="exampleFormControlTextarea1" 
-                    rows="3"></textarea>
+                    rows="3"
+                    [class.is-invalid] = "mensaje.invalid && mensaje.touched"
+                    [ngModel] = "contacto.mensaje"
+                    #mensaje="ngModel"
+                    required>
+                </textarea>
             </div>
 
             <hr>
