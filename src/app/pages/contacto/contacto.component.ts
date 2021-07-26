@@ -17,9 +17,13 @@ export class ContactoComponent implements OnInit {
 
   guardar(form: NgForm) {
 
-    if ( form.invalid) {
-      console.log('Formulario no válido');
+
+    if ( form.invalid ) {
+      Object.values( form.controls ).forEach( control => {
+        control.markAsTouched();
+      });
     }
+
     console.log(form);
     console.log(this.contacto);
   }
