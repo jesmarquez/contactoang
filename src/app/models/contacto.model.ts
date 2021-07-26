@@ -4,7 +4,9 @@ export class ContactoModel {
     correo: string;
     celular: string;
     area: string;
-    mensaje: string
+    mensaje: string;
+    creado: string;
+    actualizado: string;
 
     constructor() {
 
@@ -14,5 +16,7 @@ export class ContactoModel {
         this.celular = '';
         this.area = '';
         this.mensaje = '';
+        this.creado = '';
+        this.actualizado = '';
     }
 }

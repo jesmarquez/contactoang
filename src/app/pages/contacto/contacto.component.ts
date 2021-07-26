@@ -21,13 +21,20 @@ export class ContactoComponent implements OnInit {
 
   guardar(form: NgForm) {
     console.log(form);
-    
+
     if ( form.invalid ) {
       Object.values( form.controls ).forEach( control => {
         control.markAsTouched();
       });
     } else {
         console.log(this.contacto);
+        let today = new Date();
+        let month = today.getMonth();
+        month++;
+        let mysqlDate = today.getFullYear() + '/' + month.toString() + '/' + today.getDate() + ' ' + today.getHours() + ':' + today.getMinutes() + ':' +  today.getSeconds();
+        this.contacto.creado = mysqlDate;
+        this.contacto.actualizado = mysqlDate;
+
         this.contactosService.crearContacto( this.contacto )
         .subscribe( resp => {
           this.router.navigate([ '/home' ]);

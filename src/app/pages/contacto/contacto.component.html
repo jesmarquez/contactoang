@@ -11,6 +11,7 @@
                         class="form-control"
                         name = "nombre"
                         placeholder="Escribe tu nombre"
+                        pattern="[a-zA-Z\s\.]*$"
                         [(ngModel)] = "contacto.nombre"
                         [class.is-invalid] = "nombre.invalid && nombre.touched"
                         required
@@ -24,6 +25,7 @@
                         class="form-control"
                         name = "apellido"
                         placeholder="Escribe tu apellido"
+                        pattern="[a-zA-Z\s\.]*$"
                         [(ngModel)] = "contacto.apellido"
                         [class.is-invalid] = "apellido.invalid && apellido.touched"
                         required
