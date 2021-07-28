@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./contacto.component.css']
 })
 export class ContactoComponent implements OnInit {
-
+  errorStatus : boolean = false;
   contacto: ContactoModel = new ContactoModel();
   
   constructor( private contactosService: ContactosService,  private router:Router ) { }
@@ -37,7 +37,10 @@ export class ContactoComponent implements OnInit {
 
         this.contactosService.crearContacto( this.contacto )
         .subscribe( resp => {
+
           this.router.navigate([ '/home' ]);
+          console.log('b1');
+          console.log(resp);
         });
       
     }
